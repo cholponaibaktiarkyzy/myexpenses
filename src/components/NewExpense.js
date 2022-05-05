@@ -1,23 +1,39 @@
 import { useState } from "react";
 import "./NewExpense.css";
 
-const NewExpense = () => {
+const NewExpense = ({ addExpense }) => {
   const [title, setTitle] = useState("New Item");
+  const [date, setDate] = useState("Date");
+  const [amount, setAmount] = useState(0);
+
+  console.log("date", date);
+
+  //переменная состояния
+  // функция обновления
 
   const titleHandler = (event) => {
     setTitle(event.target.value);
   };
 
+  const dateHandler = (event) => {
+    setDate(event.target.value);
+  };
+
+  const amountHandler = (sobytie) => {
+    setAmount(sobytie.target.value);
+    console.log(sobytie.target.value);
+  };
+
   const saveExpense = (e) => {
     e.preventDefault();
 
-    const expenseData = {
-      title: title,
-      amount: "",
-      date: new Date(),
+    const newExpenseData = {
+      newTitle: title,
+      newDate: new Date(date),
+      newAmount: amount,
     };
 
-    console.log("Your inputs are saved", expenseData);
+    addExpense(newExpenseData);
   };
 
   return (
@@ -30,11 +46,11 @@ const NewExpense = () => {
           </div>
           <div className="new-expense__control">
             <label>Date</label>
-            <input type="date" />
+            <input type="date" onChange={dateHandler} />
           </div>
           <div className="new-expense__control">
             <label>Amount</label>
-            <input type="number" />
+            <input type="number" onChange={amountHandler} />
           </div>
           <div className="new-expense__actions">
             <button>Cancel</button>
@@ -43,6 +59,8 @@ const NewExpense = () => {
         </div>
       </form>
       <h1>{title}</h1>
+      <h1>{date}</h1>
+      <h4>{amount}</h4>
     </div>
   );
 };
