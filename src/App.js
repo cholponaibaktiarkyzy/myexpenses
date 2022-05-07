@@ -2,6 +2,7 @@ import ExpensesItem from "./components/ExpensesItem";
 import Expenses from "./components/Expenses";
 import NewExpense from "./components/NewExpense";
 import { useState } from "react";
+import ExpensesFilter from "./components/ExpensesFilter";
 
 // const dataBox = [
 //   {
@@ -25,7 +26,7 @@ function App() {
   const [expensesList, setExpensesList] = useState([]);
 
   const addNewExpense = (newExpense) => {
-    setExpensesList([newExpense, ...expensesList]);
+    setExpensesList([...expensesList,newExpense]);
   };
 
   return (

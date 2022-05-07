@@ -6,7 +6,6 @@ import Card from "./Card";
 
 const ExpensesItem = (props) => {
   const { date, title, price } = props;
-
   //props - объект
   // props => {}
 

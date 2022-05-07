@@ -6,7 +6,6 @@ const NewExpense = ({ addExpense }) => {
   const [date, setDate] = useState("Date");
   const [amount, setAmount] = useState(0);
 
-  console.log("date", date);
 
   //переменная состояния
   // функция обновления
@@ -21,7 +20,6 @@ const NewExpense = ({ addExpense }) => {
 
   const amountHandler = (sobytie) => {
     setAmount(sobytie.target.value);
-    console.log(sobytie.target.value);
   };
 
   const saveExpense = (e) => {
@@ -58,9 +56,9 @@ const NewExpense = ({ addExpense }) => {
           </div>
         </div>
       </form>
-      <h1>{title}</h1>
-      <h1>{date}</h1>
-      <h4>{amount}</h4>
+      {/*<h1>{title}</h1>*/}
+      {/*<h1>{date}</h1>*/}
+      {/*<h4>{amount}</h4>*/}
     </div>
   );
 };
